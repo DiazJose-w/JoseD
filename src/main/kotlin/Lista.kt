@@ -1,7 +1,6 @@
 /**
  * En este ejercicio vamos a crear la clase NODOS!
  */
-
 class Lista {
     class Nodo(var dato: Int) {
         var sig: Nodo? = null
@@ -12,7 +11,7 @@ class Lista {
     /**
      * Crear funciones añadir y borrar primero
      */
-    fun addNodo(e: Int ) {
+    fun addDato(e: Int ) {
         var nuevo = Nodo(e)
         if(this.l == null){
             this.l = nuevo
@@ -22,8 +21,19 @@ class Lista {
         }
     }
 
+    fun borrarDato(){
+        this.l = this.l!!.sig
+    }
+
     override fun toString(): String {
-        return "Lista(l=$l)"
+        var cad = "l -> "
+        var aux = this.l
+        while(aux != null){
+            cad = cad + aux.dato + " -> "
+            aux = aux.sig
+        }
+        cad = cad + "null"
+        return cad
     }
 
     /**
